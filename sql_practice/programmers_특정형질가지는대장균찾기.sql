@@ -1,3 +1,7 @@
+-- =================
+--       Lv.1
+-- =================
+
 -- 내 풀이
 SELECT COUNT(*) AS COUNT FROM ECOLI_DATA
 WHERE (GENOTYPE&5) = 5 OR (GENOTYPE&1) = 1 OR (GENOTYPE&4) = 4 
@@ -23,3 +27,4 @@ WHERE (GENOTYPE & 2) = 0
 
 모든 경우의 수를 하나하나 적어줄 필요는 없다
 */
+
