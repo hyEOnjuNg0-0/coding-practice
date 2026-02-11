@@ -43,129 +43,129 @@
 
     
     <script>
-    // 1. 점수를 입력받아 90점 이상이면 A, 80~89 사이면 B 그 외는 F 학점으로 처리하여 브라우저에 출력해라.
-    let score = prompt('점수 입력하세요')
+        // 1. 점수를 입력받아 90점 이상이면 A, 80~89 사이면 B 그 외는 F 학점으로 처리하여 브라우저에 출력해라.
+        let score = prompt('점수 입력하세요')
 
-    if (score >= 90){
-        document.write('A<br>');
-    } else if (score >= 80){
-        document.write('B<br>');
-    } else {
-        document.write('F<br>');
-    }
-
-    //2. 아래와 같이 for문으로 10~35px까지 범위를 주는데, 실제 font-Size로 적용시켜라. (document.write사용) 
-    // ​document.write(`<span style="font-size:${i}px">${i}px</span>`);
-    for (let i=10;i<=35;i+=5){
-        document.write(`<span style="font-size:${i}px">${i}px</span>`);
-    }
-    document.write('<br>');
-
-    // 3. 1~10 까지 4로 나눈 나머지가 1인 수만 출력해라(continue 사용)
-    for(let i=1;i<=10;i++){
-        if(i%4!=1){
-            continue;
-        }
-        document.write(i+' ');
-        
-    }
-    document.write('<br>');
-
-    // 4. 구구단 출력해라. (for문으로 - > 1미만 ~ 9 이상, 또는 문자(isNaN) 를 입력하면 잘못입력했다고 alert로 출력해라.
-    let dan = parseInt(prompt('구구단 단수 입력'));
-    for(let i=1;i<10;i++){
-        if (dan<1 || dan>9 || isNaN(dan)){
-            alert('잘못 입력함');
-        }else{
-            document.write(`${dan} x ${i} = ${dan*i}, `);
-        }
-        
-    }
-    document.write('<br>');
-
-
-    // 5. "마우스를 올려줘!" 라는 문자열을 주고 올렸을때 글자색을 pink색으로 변경해라.
-    // (addEventListener 와 고전방식을 사용)
-    let t1 = document.getElementById('text1');
-    let t2 = document.getElementById('text2');
-
-    t1.onmouseover=function(){
-        this.style.color = 'pink';
-    }
-    t1.onmouseout=function(){
-        this.style.color = 'black';
-    }
-
-    t2.addEventListener('mouseover',function(){
-        this.style.color = 'pink';
-    })
-    t2.addEventListener('mouseout',function(){
-        this.style.color = 'black';
-    })
-
-    // 6. 이러한 화면 만들기 (1990~1994년까지 있다. for~in를 사용하기) - select option
-    // 1990 하단에 리스트 형태로 1991,1992,1993,1994 있어야함
-    let years = [1990, 1991, 1992, 1993, 1994]
-    let s = document.getElementById('select');
-
-    for (let i in years){
-        let n = document.createElement('option')
-        n.innerHTML= years[i]
-        s.appendChild(n)
-    }
-
-    // 7. 아래와 같은 화면이 있는데, mouseover를 하게되면 red색으로 변경된다.
-     let t3 = document.getElementById('text3');
-
-     t3.addEventListener('mouseover', function(){
-        this.style.color = 'red'
-     })
-
-
-    // 8. 아래와 같이 이름과 성적을 입력하고 저장버튼을 누르면 하단에 출력된다.
-    //    반드시 createElement , appendChild사용하기
-    let ul = document.getElementById('ul');
-
-    function save(){
-        let li = document.createElement('li');
-        let a = document.getElementById('name').value + ' 의 성적은 ' + document.getElementById('score').value;
-
-        li.textContent = a
-        ul.appendChild(li)
-    }
-    
-
-    function re(){
-      ul.innerHTML="";
-    }
-
-    // 9. 아래와 같이 버튼 눌러줘!!!! 라는 버튼을 클릭하면 글자크기와 색이 변경된다.
-    //    글자크기는 30px, 색은 orchid 색으로 줘라.
-    let button = document.getElementById('button');
-
-    button.addEventListener('click', function(){
-        let spans = document.querySelectorAll('span'); //모든 span 태그 배열로 리턴
-
-        for(let i=0;i<spans.length;i++){
-            spans[i].style.fontSize = '30px';
-            spans[i].style.color = 'orchid';
-        }
-
-    })
-
-    // 10. 아래와 같이 체크박스를 클릭하면 전체 금액이 내야할 금액 옆에 뜬다. 
-    
-    let sum = 0;
-
-    function price(obj){
-        let price = document.getElementById('total');
-        if (obj.checked){
-            sum += parseInt(obj.value);
+        if (score >= 90){
+            document.write('A<br>');
+        } else if (score >= 80){
+            document.write('B<br>');
         } else {
-            sum -= parseInt(obj.value);
+            document.write('F<br>');
         }
-        price.value = sum;
-    }
+
+        //2. 아래와 같이 for문으로 10~35px까지 범위를 주는데, 실제 font-Size로 적용시켜라. (document.write사용) 
+        // ​document.write(`<span style="font-size:${i}px">${i}px</span>`);
+        for (let i=10;i<=35;i+=5){
+            document.write(`<span style="font-size:${i}px">${i}px</span>`);
+        }
+        document.write('<br>');
+
+        // 3. 1~10 까지 4로 나눈 나머지가 1인 수만 출력해라(continue 사용)
+        for(let i=1;i<=10;i++){
+            if(i%4!=1){
+                continue;
+            }
+            document.write(i+' ');
+            
+        }
+        document.write('<br>');
+
+        // 4. 구구단 출력해라. (for문으로 - > 1미만 ~ 9 이상, 또는 문자(isNaN) 를 입력하면 잘못입력했다고 alert로 출력해라.
+        let dan = parseInt(prompt('구구단 단수 입력'));
+        for(let i=1;i<10;i++){
+            if (dan<1 || dan>9 || isNaN(dan)){
+                alert('잘못 입력함');
+            }else{
+                document.write(`${dan} x ${i} = ${dan*i}, `);
+            }
+            
+        }
+        document.write('<br>');
+
+
+        // 5. "마우스를 올려줘!" 라는 문자열을 주고 올렸을때 글자색을 pink색으로 변경해라.
+        // (addEventListener 와 고전방식을 사용)
+        let t1 = document.getElementById('text1');
+        let t2 = document.getElementById('text2');
+
+        t1.onmouseover=function(){
+            this.style.color = 'pink';
+        }
+        t1.onmouseout=function(){
+            this.style.color = 'black';
+        }
+
+        t2.addEventListener('mouseover',function(){
+            this.style.color = 'pink';
+        })
+        t2.addEventListener('mouseout',function(){
+            this.style.color = 'black';
+        })
+
+        // 6. 이러한 화면 만들기 (1990~1994년까지 있다. for~in를 사용하기) - select option
+        // 1990 하단에 리스트 형태로 1991,1992,1993,1994 있어야함
+        let years = [1990, 1991, 1992, 1993, 1994]
+        let s = document.getElementById('select');
+
+        for (let i in years){
+            let n = document.createElement('option')
+            n.innerHTML= years[i]
+            s.appendChild(n)
+        }
+
+        // 7. 아래와 같은 화면이 있는데, mouseover를 하게되면 red색으로 변경된다.
+        let t3 = document.getElementById('text3');
+
+        t3.addEventListener('mouseover', function(){
+            this.style.color = 'red'
+        })
+
+
+        // 8. 아래와 같이 이름과 성적을 입력하고 저장버튼을 누르면 하단에 출력된다.
+        //    반드시 createElement , appendChild사용하기
+        let ul = document.getElementById('ul');
+
+        function save(){
+            let li = document.createElement('li');
+            let a = document.getElementById('name').value + ' 의 성적은 ' + document.getElementById('score').value;
+
+            li.textContent = a
+            ul.appendChild(li)
+        }
+        
+
+        function re(){
+        ul.innerHTML="";
+        }
+
+        // 9. 아래와 같이 버튼 눌러줘!!!! 라는 버튼을 클릭하면 글자크기와 색이 변경된다.
+        //    글자크기는 30px, 색은 orchid 색으로 줘라.
+        let button = document.getElementById('button');
+
+        button.addEventListener('click', function(){
+            let spans = document.querySelectorAll('span'); //모든 span 태그 배열로 리턴
+
+            for(let i=0;i<spans.length;i++){
+                spans[i].style.fontSize = '30px';
+                spans[i].style.color = 'orchid';
+            }
+
+        })
+
+        // 10. 아래와 같이 체크박스를 클릭하면 전체 금액이 내야할 금액 옆에 뜬다. 
+        
+        let sum = 0;
+
+        function price(obj){
+            let price = document.getElementById('total');
+            if (obj.checked){
+                sum += parseInt(obj.value);
+            } else {
+                sum -= parseInt(obj.value);
+            }
+            price.value = sum;
+        }
  
     </script>
 
