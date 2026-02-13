@@ -1,0 +1,61 @@
+<!-- 2/12 '문제3' 계산기 만들기 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <h3>계산기</h3>
+<hr>
+<input type="text" value="0" id="display" />
+<table>
+<tr><td><button onclick="clearf()">C</button></td><td><button onclick="result()">=</button></td></tr>
+<tr><td><button name="num" value="7" >7</button></td><td><button name="num" value="8">8</button></td><td><button name="num" value="9">9</button></td><td><button name="op" value="/">/</button></td></tr>
+<tr><td><button name="num" value="4">4</button></td><td><button name="num" value="5">5</button></td><td><button name="num" value="6">6</button></td><td><button name="op" value="*">*</button></td></tr>
+<tr><td><button name="num" value="1">1</button></td><td><button name="num" value="2">2</button></td><td><button name="num" value="3">3</button></td><td><button name="op" value="-">-</button></td></tr>
+<tr><td><button name="num" value="0">0</button></td><td><button name="op"value="+">+</button></td></tr>
+</table>
+
+   <script>
+
+      let num=document.getElementsByName("num");  // 숫자(배열)
+      let op=document.getElementsByName("op");    // 연산자(배열)
+      let display=document.getElementById("display"); // 입력 및 출력 화면
+
+      let susik='';
+
+      // 숫자 버튼 클릭 시
+      for(let i=0;i<num.length;i++){
+         num[i].addEventListener('click',function(){
+            let cur_value=this.value;
+            display.value=cur_value; 
+            susik += cur_value;  // 수식에 숫자 추가
+         })
+      }
+
+      // 연산자 버튼 클릭 시
+      for(let i=0;i<op.length;i++){
+         op[i].addEventListener('click',function(){
+            let n=this.innerHTML;  // 태그 사이의 text값 사용
+            susik += n;  // 수식에 연산자 추가
+         })
+      }
+
+      // 수식 계산 ('=' 버튼 클릭 시)
+      function result(){
+         display.value = eval(susik);  // 화면에 계산 결과 대입
+      }
+
+      // 초기화 ('C' 버튼 클릭 시)
+      function clearf(){
+         display.value = 0;  // 화면에 0
+         susik = '';  // 수식 초기화
+      }
+   </script>
+
+  
+
+
+</body>
+
+</html>
