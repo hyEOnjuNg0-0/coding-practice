@@ -42,12 +42,15 @@
    <script>
       let div = document.getElementById('div');
       let name = document.getElementById('name');
-      let rrn = document.getElementById('rrn1').value + document.getElementById('rrn2').value;
+      let rrn1 = document.getElementById('rrn1');
+      let rrn2 = document.getElementById('rrn2');
       let id = document.getElementById('id');
       let pw = document.getElementById('pw');
       let pwcheck = document.getElementById('pwcheck');
       let postnum = document.getElementById('postnum');
       let submit1 = document.getElementsByName('submit1');
+
+      console.log(rrn);
 
       function join(){
          event.preventDefault();
@@ -64,7 +67,7 @@
          
 
          let info=document.createElement("div");
-         info.innerHTML = `이름 : ${name.value}<br> 주민등록번호 : ${rrn}<br> 아이디 : ${id.value}<br> 비밀번호 : ${pw.value}`
+         info.innerHTML = `이름 : ${name.value}<br> 주민등록번호 : ${rrn1.value+rrn2.value}<br> 아이디 : ${id.value}<br> 비밀번호 : ${pw.value}`
          div.appendChild(info);
       }
       
