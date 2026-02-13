@@ -1,0 +1,74 @@
+<!-- 2/13 과제 '회원 가입 페이지 구현' 풀이 -->
+ 
+<!-- 조건 :
+- 아이디는 네글자 이상이어야함 ->네 글자 이상이 아니면 경고창 alert창 (네 글자 입력해야한다) 띄운다.
+- 우편번호는 -를 포함해 입력해야함 ->(- 포함안하면 경고창) alert창
+- 비밀번호와 비밀번호 확인 값이 같아야함 ->(같지 않으면) alert창
+- 회원가입버튼은 submit으로 설정하고 이벤트처리는 onsubmit으로 준다.
+- createElement, appendChild 이용해 화면 아래에 입력한 정보들(이름, 주민등록번호, 아이디, 비밀번호)만 뜨도록 작성한다. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+   <form id="form" onsubmit="return join(event)">
+      이름 <input type="text" id="name"><br>
+      주민등록번호 <input type="text" id="rrn1">-<input type="text" id="rrn2"><br>
+      아이디 <input type="text" id="id"><br>
+      비밀번호 <input type="password" id="pw"><br>
+      비밀번호 확인 <input type="password" id="pwcheck"><br>
+      이메일 <input type="text" id="email1">@<input type="text" id="email2">
+      <select>
+         <option>nate.com</option>
+         <option>google.com</option>
+      </select><br>
+      우편번호 <input type="text" id="postnum"><br>
+      주소 <input type="text" id="addr1"> <input type="text" id="addr2"><br>
+      핸드폰번호 <input type="text" id="phone"><br>
+      직업
+      <select id="job" size="3">
+         <option>학생</option>
+         <option>컴퓨터/인터넷</option>
+         <option>언론</option>
+      </select>
+      <br>
+      메일/SMS 정보 수신 <input type="radio" id="accept">수신 <input type="radio" id="deny">수신거부 <br>
+      <input type="submit" value="회원가입" name="submit1">
+      <button id="cancel" onclick="cancel()">취소</button>
+   </form>
+   <div id="div"><!--<div> </div>--></div>
+
+   <script>
+      let div = document.getElementById('div');
+      let name = document.getElementById('name');
+      let rrn = document.getElementById('rrn1').value + document.getElementById('rrn2').value;
+      let id = document.getElementById('id');
+      let pw = document.getElementById('pw');
+      let pwcheck = document.getElementById('pwcheck');
+      let postnum = document.getElementById('postnum');
+      let submit1 = document.getElementsByName('submit1');
+
+      function join(){
+         event.preventDefault();
+
+         if (name.value.length<4){
+         alert('아이디는 네 글자 이상 입력해야 합니다.');
+         }
+         else if (!(pwcheck.value == pw.value)){
+            alert('비밀번호와 비밀번호 확인 값이 다릅니다.');
+         }
+         else if (!(postnum.value.includes('-'))){
+         alert('우편 번호에는 \' - \' 기호가 포함되어야 합니다.');
+         }
+         
+
+         let info=document.createElement("div");
+         info.innerHTML = `이름 : ${name.value}<br> 주민등록번호 : ${rrn}<br> 아이디 : ${id.value}<br> 비밀번호 : ${pw.value}`
+         div.appendChild(info);
+      }
+      
+   </script>
+</body>
+
+</html>
