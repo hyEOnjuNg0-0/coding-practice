@@ -27,20 +27,11 @@
 
     <script>
         // 요소 불러오기
-        let q1 = document.getElementById('q1');
-        let q2 = document.getElementById('q2');
-        let q3 = document.getElementById('q3');
-        let q4 = document.getElementById('q4');
-
-        let ans1 = document.getElementById('ans1');
-        let ans2 = document.getElementById('ans2');
-        let ans3 = document.getElementById('ans3');
-        let ans4 = document.getElementById('ans4');
+        const qs = document.getElementsByTagName('label');
+        const anss = document.getElementsByTagName('input');
 
         const max = 101;                        // 난수 범위 0~max(100)
-        const oper = ['+', '-', '*', '/'];      // 사칙연산 배열         
-        const qs = [q1, q2, q3, q4];            // 수식 출력될 라벨 배열
-        const anss = [ans1, ans2, ans3, ans4];  // 사용자 정답(입력) 배열
+        const oper = ['+', '-', '*', '/'];      // 사칙연산 배열 사용자 정답(입력) 배열
         const corrects = [];                    // 정답 배열
         let count = 0;                          // 정답 개수
 
