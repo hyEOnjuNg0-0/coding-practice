@@ -1,0 +1,99 @@
+<!-- 2/20 팀 과제 '10초동안 랜덤 사칙연산 퀴즈' 풀이 -->
+
+<!-- 조건 :
+- 문제에 나오는 수(1~100), 사칙연산도 랜덤 (+, - , *, / ) 랜덤으로 뽑아짐
+- 10초 지난 후 정답이 틀리면 옆에 빨간색으로 답이뜨고, 취소선 으로 표시
+- 맨 밑에 정답 개수 출력
+- 남은시간 부분에 10 9 8 7 6 5 4 3 2 1 0 이런 식으로 초가 하나씩 줄어든다
+- '다시' 버튼을 누르면 reload (새로고침) 되면서 새로운 문제가 랜덤으로 뜬다 (location.reload()) 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1>문제는 자동으로 생성되며, 10초가 지나면 자동 채점</h1>
+    <h2 id="timer"></h2>
+    <hr>
+    <div>
+      <label id="q1"></label> <input type="text" id="ans1"><br>
+      <label id="q2"></label> <input type="text" id="ans2"><br>
+      <label id="q3"></label> <input type="text" id="ans3"><br>
+      <label id="q4"></label> <input type="text" id="ans4">
+    </div>
+    <button onclick="location.reload()">다시</button>
+    <div id="ans_cnt"></div>
+
+    <script>
+        // 요소 불러오기
+        let q1 = document.getElementById('q1');
+        let q2 = document.getElementById('q2');
+        let q3 = document.getElementById('q3');
+        let q4 = document.getElementById('q4');
+
+        let ans1 = document.getElementById('ans1');
+        let ans2 = document.getElementById('ans2');
+        let ans3 = document.getElementById('ans3');
+        let ans4 = document.getElementById('ans4');
+
+        const max = 101;                        // 난수 범위 0~max(100)
+        const oper = ['+', '-', '*', '/'];      // 사칙연산 배열         
+        const qs = [q1, q2, q3, q4];            // 수식 출력될 라벨 배열
+        const anss = [ans1, ans2, ans3, ans4];  // 사용자 정답(입력) 배열
+        const corrects = [];                    // 정답 배열
+        let count = 0;                          // 정답 개수
+
+        // 랜덤 사칙연산 수식 생성 + 정답
+        for (let i=0;i<=3;i++){
+            // 0~max(100) 사이 난수 생성
+            const num1 = Math.floor(Math.random() * max);  
+            const num2 = Math.floor(Math.random() * max);
+
+            // 랜덤 사칙연산
+            const index = Math.floor(Math.random() * 4);  // 0~3 랜덤 인덱스
+
+            // 랜덤 수식
+            let eq = `${num1} ${oper[index]} ${num2}`;
+            corrects[i] = eval(eq);
+            qs[i].innerHTML = eq;
+        }
+
+
+        // 타이머
+        let time = 10;  // 제한시간
+
+        let out = setInterval(function(){
+            // 10초 이내면
+            if (time >= 0){
+                document.getElementById('timer').innerText = `남은시간 ${time}`;
+                time--;
+            }
+            // 10초 지나면
+            else {
+                // 타이머 정지
+                setTimeout(function(){
+                clearInterval(out);});  
+
+                // 채점
+                for (let i=0;i<=3;i++){
+                    if (time < 0){  // 정답이면 정답 카운트 +1
+                        if(corrects[i] == anss[i].value){
+                        count++;
+                    }
+                    else {  // 틀리면 문제 취소선 + 정답 빨갛게
+                        qs[i].style.textDecoration='line-through';
+                        anss[i].value = corrects[i];
+                        anss[i].style.color = 'red';
+                    }
+                }
+
+                document.getElementById('ans_cnt').innerHTML = `정답 : ${count}개`;
+        }
+            }              
+        },1000);
+        
+    </script>
+
+</body>
+</html>
