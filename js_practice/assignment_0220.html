@@ -63,21 +63,18 @@
             // 10초 지나면
             else {
                 // 타이머 정지
-                setTimeout(function(){
-                clearInterval(out);});  
+                clearInterval(out); 
 
                 // 채점
                 for (let i=0;i<=3;i++){
-                    if (time < 0){  // 정답이면 정답 카운트 +1
-                        if(corrects[i] == anss[i].value){
-                        count++;
+                    if(corrects[i] == anss[i].value){ // 정답이면 정답 카운트 +1
+                    count++;
                     }
                     else {  // 틀리면 문제 취소선 + 정답 빨갛게
                         qs[i].style.textDecoration='line-through';
                         anss[i].value = corrects[i];
                         anss[i].style.color = 'red';
                     }
-                }
 
                 document.getElementById('ans_cnt').innerHTML = `정답 : ${count}개`;
         }
