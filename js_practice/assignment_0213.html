@@ -60,13 +60,14 @@
             alert('비밀번호와 비밀번호 확인 값이 다릅니다.');
          }
          else if (!(postnum.value.includes('-'))){
-         alert('우편 번호에는 \' - \' 기호가 포함되어야 합니다.');
+            alert('우편 번호에는 \' - \' 기호가 포함되어야 합니다.');
+         }
+         else {
+            let info=document.createElement("div");
+            info.innerHTML = `이름 : ${name.value}<br> 주민등록번호 : ${rrn1.value+rrn2.value}<br> 아이디 : ${id.value}<br> 비밀번호 : ${pw.value}`
+            div.appendChild(info);
          }
          
-
-         let info=document.createElement("div");
-         info.innerHTML = `이름 : ${name.value}<br> 주민등록번호 : ${rrn1.value+rrn2.value}<br> 아이디 : ${id.value}<br> 비밀번호 : ${pw.value}`
-         div.appendChild(info);
       }
       
    </script>
@@ -74,3 +75,4 @@
 
 
 </html>
+
