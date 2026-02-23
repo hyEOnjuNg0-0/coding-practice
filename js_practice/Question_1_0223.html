@@ -1,0 +1,76 @@
+<!-- 2/23 JavaScript 시험 '1번 문제 (To-do list)' 풀이 -->
+
+<!-- 조건 :
+- 할 일(공부하기, 운동가기) 을 입력하고 추가 버튼 클릭 시 하단에 할 일 생성
+- 추가 버튼 뿐 아니라 엔터 (enter) 키를 눌러도 할 일이 하단에 추가
+- 각 항목에 삭제 버튼 (x) 를 추가하여 x 를 클릭하면 데이터와 x버튼이 사라진다.
+- 할 일이 추가되면 '총 할 일 개수'가 늘어나고 삭제하면 줄어든다
+- 전체 삭제 버튼을 누르면 alert 창이 뜨고, 확인을 누르면 입력창 비어있고, 총 할 일은 0개가 뜬다
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>오늘 계획표</h2>
+    <input type="text" id="input_todo" > <button onclick="add_todo()">추가</button>
+    <div id="todo_list"></div>
+
+    <div id="todo_cnt">총 할 일 : 0개</div>
+    <button onclick="del_all()">전체 삭제</button>
+
+    <script>
+        let cnt = 0;               // 할 일 개수
+        let todo_list = document.getElementById('todo_list');
+        let todo_cnt = document.getElementById('todo_cnt');
+        
+        function add_todo(){
+            let new_todo = document.createElement('div');  // 새 할 일 노드 추가
+            let input = document.getElementById('input_todo').value;  // 입력값
+            let del_btn = document.createElement('button');  // x 버튼 추가
+
+            // 입력 없으면 return
+            if (input == ""){return}
+
+            // 할 일과 x버튼 추가
+            new_todo.innerHTML = input;
+            del_btn.innerText = 'x'
+
+            new_todo.appendChild(del_btn);
+            todo_list.appendChild(new_todo);
+
+            // x 버튼 누르면 해당 할 일 삭제
+            del_btn.onclick = function() {
+                todo_list.removeChild(new_todo);
+
+                cnt -= 1;
+                todo_cnt.innerHTML = `총 할 일 : ${cnt}개`
+            };
+
+            // 총 할 일 카운트 증가
+            cnt += 1;  
+            todo_cnt.innerHTML = `총 할 일 : ${cnt}개`
+
+        }
+
+        // 엔터 누르면 add_todo() 실행
+        add.onkeydown = function(event) {
+            if (event.key === "Enter") {
+                add_todo();
+            }
+        };
+
+        // 전체 삭제
+        function del_all(){
+            confirm('모든 항목을 삭제하시겠습니까?')
+            document.getElementById('input_todo').value = "";
+            todo_list.innerHTML="";
+
+            cnt = 0;
+            todo_cnt.innerHTML = `총 할 일 : ${cnt}개`
+        }
+
+    </script>
+</body>
+</html>
