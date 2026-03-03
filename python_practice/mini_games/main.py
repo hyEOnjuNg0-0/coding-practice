@@ -1,5 +1,5 @@
 import user
-from games import fortune_game, updown_game
+from games import fortune_game, updown_game, blackjack
 
 
 user_manager = user.user_manager  # user.py에서 만든 객체 그대로 사용 (기능들이 그 전역객체를 참조하고 있기 때문)
@@ -20,7 +20,7 @@ def show_game_list():
     print('1. 오늘의 운세')
     print('2. 숫자 Up Down')
     print('3. 블랙잭')
-    print('4. 게임4')
+    print('4. 가위바위보')
     print('0. 홈으로 돌아가기')
 
 # 유저 정보 보여주기
@@ -61,9 +61,9 @@ def main():
                 elif game_choice == "2":
                     updown_game.UpDown().play()
                 elif game_choice == "3":
-                    print('')
+                    blackjack.play()
                 elif game_choice == "4":
-                    print('4번 게임 선택')
+                    print('가위바위보 게임 선택')
                 elif game_choice == "0":
                     print('\n > > > 홈으로 돌아갑니다')
                     break
@@ -117,8 +117,8 @@ def main():
         # 종료 선택
         elif choice == '0':
             print('\n\n> > > 미니 게임 나라를 종료합니다 < < <')
-            print('=======================================')
-            print('                               madeby.HJ, . . .')
+            print('===============================================================')
+            print('                                       madeby.HJ, SY, JE . . .')
             break
         else:
             print('잘못된 입력입니다.')

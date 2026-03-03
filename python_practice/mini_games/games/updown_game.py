@@ -10,7 +10,6 @@ class UpDown:
 
     def play(self):
         self.correct = random.randint(1, 100)
-
         while True:
             guess = int(input('1~100 사이 정수를 입력하세요'))
             if guess > 100 or guess < 1:
@@ -23,9 +22,5 @@ class UpDown:
                 print('DOWN')
 
             elif guess == self.correct:
-                print('!!!정답입니다!!!')
+                print('!!!~정답입니다~!!!')
                 break
-
-# game = UpDown()
-# game.play()
-

@@ -17,7 +17,7 @@ class User:
 UserManger.users : 딕셔너리. user_id를 키값으로 User 객체들을 저장
 {
     'user_id1': <User 객체>,
-    'iser_id2': <User 객체>,
+    'user_id2': <User 객체>,
     ...
 }
 '''
