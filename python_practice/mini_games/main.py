@@ -1,7 +1,6 @@
 import user
 from games import fortune_game, updown_game, blackjack
 
-
 user_manager = user.user_manager  # user.py에서 만든 객체 그대로 사용 (기능들이 그 전역객체를 참조하고 있기 때문)
 
 def home_page():
@@ -13,6 +12,7 @@ def home_page():
     print('1. 게임 플레이')
     print('2. 마이페이지')
     print('3. 회원 가입')
+    print('4. 회원 삭제')
     print('0. 미니 게임 나라 종료')
 
 def show_game_list():
@@ -20,7 +20,7 @@ def show_game_list():
     print('1. 오늘의 운세')
     print('2. 숫자 Up Down')
     print('3. 블랙잭')
-    print('4. 가위바위보')
+    print('4. 게임4')
     print('0. 홈으로 돌아가기')
 
 # 유저 정보 보여주기
@@ -29,10 +29,7 @@ def show_user_info(user_id):
     print('\n---------- 회원 정보 ----------')
     print('\tNAME | ', selected_user.name)
     print('\tID | ', selected_user.user_id)
-    print('\tTYPE | ', selected_user.user_type)
-    print('\tTOTAL GAME COUNT | ', selected_user.total)
-    print('\tTOTAL GAME WIN | ', selected_user.wins)
-    print(f'\tWIN RATE | {selected_user.wins / (selected_user.total + 0.001) * 100:.1f}')
+    print('\n------------------------------')
 
 # 로그인
 def log_in(user_id):
@@ -61,9 +58,9 @@ def main():
                 elif game_choice == "2":
                     updown_game.UpDown().play()
                 elif game_choice == "3":
-                    blackjack.play()
+                    blackjack.BlackJack().play()
                 elif game_choice == "4":
-                    print('가위바위보 게임 선택')
+                    print('4번 게임 선택')
                 elif game_choice == "0":
                     print('\n > > > 홈으로 돌아갑니다')
                     break
@@ -98,27 +95,31 @@ def main():
             input_pw = input('pw 입력 : ')
             input_name = input('이름 입력 : ')
 
-            # 회원 유형 입력
-            while True:
-                input_type = input('회원 유형을 고르세요. (일반/관리자) :')
-                if input_type == '일반':
-                    input_type = 'common'
-                    break
-                elif input_type == '관리자':
-                    input_type = 'admin'
-                    break
-                else:
-                    print('회원 유형은 \'일반\'과 \'관리자\'중에서 선택해야 합니다.')
-
             # 새로운 회원 생성 (새 User 객체 싱성)
-            user.signin(input_id, input_name, input_pw, input_type)
+            user.signin(input_id, input_name, input_pw)
             print('\n🎊미니 게임 나라 회원이 되신 걸 환영합니다🎊 홈 화면으로 이동합니다.')
+
+        # 기존 회원 삭제
+        
+        elif choice == '4':
+            print('\n> > > 회원 삭제 < < <')
+            input_id = input('삭제 id : ')
+            # 회원 존재 여부 확인
+            if user.check_exist_user(input_id):
+                # 비밀번호 확인
+                log_in(input_id)
+                if user.user_manager.delete_user(input_id):
+                    print('회원 삭제 완료.')
+                else:
+                    print('회원 삭제 실패!')
+            else:
+                print('존재하지 않는 아이디입니다.')
 
         # 종료 선택
         elif choice == '0':
             print('\n\n> > > 미니 게임 나라를 종료합니다 < < <')
-            print('===============================================================')
-            print('                                       madeby.HJ, SY, JE . . .')
+            print('=======================================')
+            print('                               madeby.HJ, . . .')
             break
         else:
             print('잘못된 입력입니다.')

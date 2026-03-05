@@ -4,8 +4,8 @@ mini_games/
 ├── user.py                        # 회원 관리
 ├── games/                        # 미니 게임들 모아놓은 패키지
 │   ├── __init__.py
-│   ├── fortune_game.py      # 오늘의 운세
-│   ├── updown_game.py    # 숫자 up down 게임
+│   ├── fortune_game.py        # 오늘의 운세
+│   ├── updown_game.py         # 숫자 up down 게임
 │   ├── blackjack.py           # blackjack 게임
 │   └── 게임4.py
 └── STRUCTURE.txt             # 프로젝트 구조(현재 파일)
