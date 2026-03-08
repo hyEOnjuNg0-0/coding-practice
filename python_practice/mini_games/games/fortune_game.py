@@ -1,3 +1,15 @@
+# 수정한 사항 (수정 완료)
+# 1. 클래스 이름 변경 (thefortune -> TheFortune)
+# 2. play_fortune_game 함수 삭제 (클래스 함수 사용하면 됨)
+# 3. play() for문 변수 이름 변경. 코드 가독성 위해 (luck -> num, answers -> answer)
+# 4. 운세 결과 return이 아니라 print로
+# (결과를 play()의 반환값으로 주고 main에서 print로 받아도 되긴 하지만 main에선 호출만 하는 구조로 통일하기 위함)
+
+# 수정할 사항 (해야 되는 거)
+# 1. 나가기 번호 추가 (나가기 클릭하지 않는 한 계속 운세 볼 수 있도록 변경)     (if문으로 0번(나가기 버튼) 추가),(input(엔터키)를 이용한 다시 시작버튼)
+# 2. 잘못된 입력값 처리를 함수 return으로 주는 게 아니라 입력이 잘못되면 다른 입력값을 입력할 수 있도록 해야 함 (input(엔터키)를 이용한 다시 시작버튼)
+# 3. 🍀나 -, =와 같은 기호들로 결과 문장 꾸미기. 지금 구분이 안 됨    (해결✨)
+
 import random
 
 class TheFortune:
@@ -48,10 +60,10 @@ class TheFortune:
                 print("\n오늘의 운세 결과:")
                 print(random.choice(self.answers[question]))
                 print("\n===========================")
-                input("\n엔터를 누르면 다시 선택합니다.")  # enter 이용
+                input("\n엔터를 누르면 다시 선택합니다.") #enter이용
 
             else:
                 print("\n=====================")
                 print("\n❌ 잘못된 번호입니다.")
-                input("엔터를 누르면 다시 시작합니다.")
+                input("엔터를 누르면 다시 시작함니다.")
                 continue

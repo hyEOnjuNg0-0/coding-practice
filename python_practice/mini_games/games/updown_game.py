@@ -4,28 +4,31 @@
 # #up&down 알려주고 맞으면 정답처리
 import random
 
-
 class UpDown:
     def __init__(self):
         pass
 
     def play(self):
-        self.correct = random.randint(1, 100)
+        self.correct=random.randint(1,100)
         while True:
             try:
-                guess = int(input('1~100 사이 정수를 입력하세요'))
-                if guess > 100 or guess < 1:
+                guess=int(input('1~100 사이 정수를 입력하세요'))
+                if guess>100 or guess<1:
                     print('1~100사이로 다시 입력하세요!')
-
-                elif guess < self.correct:
+                
+                elif guess<self.correct:
                     print('UP')
-
-                elif guess > self.correct:
+                
+                elif guess>self.correct:
                     print('DOWN')
-
-                elif guess == self.correct:
-                    print('!!!~정답입니다~!!!')
+                
+                elif guess==self.correct:
+                    print('👍👍👍~정답입니다~👍👍👍')
                     break
-
+                
             except ValueError:
-                print("1~100사이의 >>>숫자로<<< 입력하세요")
+                print('숫자로 입력해주세요!')
+
+# game = UpDown()
+# game.play()
+
