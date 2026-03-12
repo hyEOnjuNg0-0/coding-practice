@@ -1,0 +1,9 @@
+App
+ └ UsersProvider
+     └ BrowserRouter  // UsersProvider 안의 모든 컴포넌트 트리
+         └ Routes
+             ├ /users
+             │   └ Users
+             │
+             └ /users/:id
+                 └ UsersInfo
