@@ -1,0 +1,151 @@
+/* 전체 앱 스타일 */
+* {
+  box-sizing: border-box; /* padding, border 포함 */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e0f7ff; /* 연한 하늘색 배경 */
+  color: #004d66;
+  color-scheme: light; /* 라이트 테마 지정*/
+}
+
+/* 앱 컨테이너 */
+.app {
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 제목 */
+h1 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 30px;
+}
+
+/* 로그인, 회원가입, 회원정보 수정 섹션 */
+.auth-section, .selected-user {
+  background: #f0fbff; /* 더 연한 하늘색 */
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 153, 255, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* 입력 필드 */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #99d6ff;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  background-color: #ffffff;
+}
+
+/* 버튼 기본 스타일 */
+button {
+  background-color: #4db8ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1a8cff;
+}
+
+/* 로그아웃 버튼 별도 스타일 */
+.logoutBtn {
+  background-color: #3399ff;
+}
+
+.logoutBtn:hover {
+  background-color: #007acc;
+}
+
+/* 회원 리스트 컨테이너 */
+.user-list {
+  background-color: #f0fbff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 40vh; /* 리스트 길이 제한 */
+  overflow-y: auto; /* 스크롤 가능 */
+  margin-bottom: 20px;
+}
+
+/* 개별 회원 아이템 */
+.po-item {
+  background-color: #e6f7ff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.po-item:hover {
+  background-color: #cceeff;
+}
+
+.po-item h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #005580;
+}
+
+.po-item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #003344;
+}
+
+/* 선택된 유저 상세 보기 */
+.selected-user {
+  border: 2px solid #99d6ff;
+  max-height: 50vh; /* 높이 제한 */
+  overflow-y: auto; /* 스크롤 가능 */
+}
+
+/* 선택된 유저 제목 */
+.selected-user h2 {
+  margin-top: 0;
+  color: #007acc;
+}
+
+/* 수정 모드 입력 필드 */
+.selected-user input[type="text"],
+.selected-user input[type="email"],
+.selected-user input[type="password"] {
+  margin-bottom: 10px;
+}
+
+/* 반응형 */
+@media screen and (max-width: 600px) {
+  .auth-section, .user-list, .selected-user {
+    padding: 15px;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 14px;
+  }
+  button {
+    padding: 8px 15px;
+  }
+}

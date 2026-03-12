@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 전체 게시판 */
+.board-app {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 2px solid pink;
+  border-radius: 10px;
+}
+
+/* 제목 */
+.board-app h1 {
+  background-color: pink;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* 입력 영역 */
+.input-section {
+  border: 2px solid pink;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* 입력 박스 영역 */
+.board-li {
+  border: 2px solid pink;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* input textarea */
+.input-section input,
+.input-section textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid pink;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+/* 등록 버튼 */
+.input-section button {
+  padding: 8px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: rgb(244, 137, 137);
+}
+
+/* 게시글 목록 아이템 */
+.board-item {
+  border: 1px solid gray;
+  margin: 10px 0;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.board-item:hover {
+  background-color: #ffe6f0;
+}
+
+/* 상세 보기 */
+.post-detail {
+  border: 2px solid pink;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #588c93;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* 수정 / 저장 버튼 */
+.ModiBtn,
+.saveBtn {
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: green;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+/* 수정 input */
+.post-detail input,
+.post-detail textarea {
+  padding: 10px;
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  font-size: 1.1em;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+/* textarea 높이 */
+.post-detail textarea {
+  height: 200px;
+}
